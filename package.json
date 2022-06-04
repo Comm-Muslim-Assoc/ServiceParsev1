@@ -1,0 +1,45 @@
+{
+  "name": "comm-muslim-assoc",
+  "version": "1.4.0",
+  "description": "Comminity Muslim Association",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "nyc jasmine",
+    "lint": "eslint --cache ./cloud && eslint --cache index.js && eslint --cache ./spec",
+    "lint-fix": "eslint --cache --fix ./cloud && eslint --cache --fix index.js && eslint --cache --fix ./spec",
+    "prettier": "prettier --write '{cloud,spec}/{**/*,*}.js' 'index.js'",
+    "start": "ts-node index.ts",
+    "test": "mongodb-runner start && jasmine",
+    "dev": "nodemon --exec 'ts-node --cache-directory .tscache' index.ts",
+    "watch": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "4.18.1",
+    "parse": "3.4.2",
+    "parse-server": "5.2.1",
+    "ts-node": "^5.0.1",
+    "typescript": "^2.8.1"
+
+  },
+  "devDependencies": {
+    "@types/express": "^4.11.1",
+    "@types/parse": "^2.4.3",
+    "plop": "^2.0.0",
+    "typings": "^2.1.1",
+    "@babel/eslint-parser": "7.17.0",
+    "eslint": "8.15.0",
+    "jasmine": "4.1.0",
+    "mongodb-runner": "4.9.0",
+    "nodemon": "2.0.16",
+    "nyc": "15.1.0",
+    "prettier": "2.6.2"
+  },
+  "engines": {
+    "node": ">=12.22.10 <19"
+  }
+}

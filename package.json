@@ -23,12 +23,14 @@
     "parse": "3.4.2",
     "parse-server": "5.2.1",
     "ts-node": "^5.0.1",
-    "typescript": "^2.8.1"
+    "typescript": "^2.8.1",
+    "parse-dashboard" : "4.1.1"
 
   },
   "devDependencies": {
     "@types/express": "^4.11.1",
     "@types/parse": "^2.4.3",
+    "@types/node" : "*",
     "plop": "^2.0.0",
     "typings": "^2.1.1",
     "@babel/eslint-parser": "7.17.0",

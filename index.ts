@@ -3,6 +3,7 @@
 
 const express = require('express');
 const ParseServer = require('parse-server').ParseServer;
+var ParseDashboard = require('parse-dashboard');
 const path = require('path');
 const args = process.argv || [];
 const test = args.some(arg => arg.includes('jasmine'));
@@ -26,6 +27,17 @@ const config = {
 // If you wish you require them, you can set them as options in the initialization above:
 // javascriptKey, restAPIKey, dotNetKey, clientKey
 
+var dashboard = new ParseDashboard({
+  "apps": [
+    {
+      "serverURL": "http://localhost:1337/parse",
+      "appId": "myAppId",
+      "masterKey": "myMasterKey",
+      "appName": "MyApp"
+    }
+  ]
+});
+
 const app = express();
 
 // Serve static assets from the /public folder
@@ -36,6 +48,7 @@ const mountPath = process.env.PARSE_MOUNT || '/parse';
 if (!test) {
   const api = new ParseServer(config);
   app.use(mountPath, api);
+  app.use('/dashboard', dashboard);
 }
 
 // Parse Server plays nicely with the rest of your web routes
